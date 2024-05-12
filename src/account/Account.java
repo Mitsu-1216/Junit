@@ -6,20 +6,18 @@ package account;
  */
 public class Account {
 
-  /**
-   * 絶対値を利用した足し算
-   * @param a 値1
-   * @param b 値2
-   */
-  public static int lintAdd(int a, int b) {
-    
-    if (a < 0) {
-      a = a * -1;
-    }
-    if (b < 0) {
-      b = b * -1;
-    }
-    
-    return a + b;
-  }
+String owner;
+int balance;
+
+
+public Account(String owner,int balance) {
+	this.owner = owner;
+	this.balance = balance;
+}
+
+public void transfer(Account dest,int amount) {
+	dest.balance += amount;
+	balance -= amount;
+}
+
 }
