@@ -2,6 +2,8 @@ package account;
 
 class AccountTest {
 	
+	static int errorcnt = 0;
+	
 	public static void main(String[] args) {		
 		testInstantiate();
 //		testTransfer();
@@ -15,12 +17,18 @@ class AccountTest {
 		if(!"minato".equals(a.owner)) {
 			System.out.println("テストは失敗しました");
 			System.out.println("名義人エラー");
+			errorcnt++;
 		}
 		
 		if(30000 != a.balance) {
 			System.out.println("テストは失敗しました");
 			System.out.println("残高エラー");
+			errorcnt++;
 		}
-	
+		
+		if(errorcnt == 0){
+			System.out.println("異常なし");
+			System.out.println("テストは成功しました！");
+		}	
 	}
 }
